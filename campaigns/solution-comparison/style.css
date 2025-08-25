@@ -1,0 +1,408 @@
+/* Use brand colors from shared CSS */
+/* This file contains page-specific styles only */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--bg-white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+.hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+/* Comparison Tool Section */
+.comparison-tool {
+    margin: -40px auto 60px;
+    position: relative;
+    z-index: 10;
+}
+
+.tool-card {
+    background: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tool-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tool-header h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* Interactive Selector */
+.selector-questions {
+    background: var(--bg-light);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.question select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Comparison Results */
+.comparison-results {
+    display: none;
+    margin-top: 40px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.plugin-card {
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.plugin-card.recommended {
+    border-color: var(--success-color);
+    background: #f0fdf4;
+}
+
+.plugin-card.recommended::before {
+    content: "RECOMMENDED";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--success-color);
+    color: white;
+    padding: 4px 16px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.plugin-name {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.plugin-score {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin: 20px 0;
+}
+
+.plugin-features {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.plugin-features li {
+    padding: 5px 0;
+    list-style: none;
+    position: relative;
+    padding-left: 25px;
+}
+
+.plugin-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+/* Benchmark Section */
+.benchmark-section {
+    padding: 60px 0;
+    background: var(--bg-light);
+}
+
+.benchmark-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.benchmark-card {
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.benchmark-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.performance-bar {
+    width: 100%;
+    height: 40px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    position: relative;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.performance-fill {
+    height: 100%;
+    background: var(--success-color);
+    border-radius: 20px;
+    transition: width 1s ease-out;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    color: white;
+    font-weight: 600;
+}
+
+/* Security Scanner */
+.scanner-section {
+    padding: 60px 0;
+}
+
+.scanner-card {
+    background: var(--bg-white);
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.url-scanner {
+    display: flex;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.url-input {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Migration Guide */
+.migration-section {
+    padding: 60px 0;
+    background: var(--bg-light);
+}
+
+.migration-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background: var(--bg-white);
+    border: 2px solid #e5e7eb;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-button.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.migration-content {
+    background: var(--bg-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.migration-steps {
+    counter-reset: step-counter;
+    margin: 20px 0;
+}
+
+.migration-step {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 20px;
+    counter-increment: step-counter;
+}
+
+.migration-step::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 35px;
+    height: 35px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 60px 0;
+}
+
+.faq-grid {
+    display: grid;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.faq-item {
+    background: var(--bg-white);
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.faq-question {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn-white {
+    background: white;
+    color: var(--primary-color);
+}
+
+.btn-white:hover {
+    background: var(--bg-light);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+    
+    .url-scanner {
+        flex-direction: column;
+    }
+    
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+}
