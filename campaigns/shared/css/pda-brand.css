@@ -1,0 +1,21 @@
+/* campaigns/shared/css/pda-brand.css 
+  ------------------------------------
+  This is your central stylesheet for all landing pages. 
+  Update the color variables here, and every page will automatically update.
+*/
+
+:root {
+    /* ==> ACTION REQUIRED: Replace these placeholder colors with your actual PDA brand colors. */
+    --primary-color: #1b3d67;    /* Main brand color for buttons, links, etc. */
+    --primary-hover: #28507d;    /* Color for when hovering over primary elements. */
+    --secondary-color: #2d9c5d;  /* Accent color used in gradients and highlights. */
+    
+    /* Standard colors - you can keep these or adjust them. */
+    --success-color: #10b981;    /* Green for success messages. */
+    --danger-color: #ef4444;     /* Red for warnings and critical alerts. */
+    --text-dark: #1f2937;        /* Main text color. */
+    --text-light: #6b7280;       /* Lighter text for subheadings and descriptions. */
+    --bg-light: #f9fafb;         /* Light background color for sections. */
+    --bg-white: #ffffff;         /* Pure white background. */
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Standard box shadow. */
+}
