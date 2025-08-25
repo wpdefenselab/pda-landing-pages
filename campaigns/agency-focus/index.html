@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Protect all client files across unlimited WordPress sites with one license. White-label security, bulk management, and priority support for agencies.">
+    <title>WordPress Agency File Protection - Bulk Security for Client Sites | WP Defense Lab</title>
+    
+    <!-- Shared brand styles -->
+    <link rel="stylesheet" href="../shared/css/pda-brand.css">
+    <!-- Page specific styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>Protect Client Files on WordPress<br>(Without the Headaches)</h1>
+            <p>One license. Unlimited sites. Zero exposed client contracts.</p>
+            
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <div class="trust-number">500+</div>
+                    <div class="trust-label">Agencies Trust Us</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-number">50,000+</div>
+                    <div class="trust-label">Sites Protected</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-number">0</div>
+                    <div class="trust-label">Security Breaches</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ROI Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-card">
+                <div class="calculator-header">
+                    <h2>Calculate Your Agency's Security ROI</h2>
+                    <p>See how much time and money you'll save with automated file protection</p>
+                </div>
+                
+                <div class="calculator-grid">
+                    <div class="calc-input">
+                        <label for="numSites">Number of client sites you manage</label>
+                        <input type="number" id="numSites" placeholder="25" value="25">
+                        <small>WordPress sites only</small>
+                    </div>
+                    
+                    <div class="calc-input">
+                        <label for="hourlyRate">Your hourly rate</label>
+                        <input type="number" id="hourlyRate" placeholder="125" value="125">
+                        <small>USD per hour</small>
+                    </div>
+                    
+                    <div class="calc-input">
+                        <label for="securityTime">Hours per month on file security</label>
+                        <input type="number" id="securityTime" placeholder="8" value="8">
+                        <small>Setting permissions, fixing exposures</small>
+                    </div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <button class="btn btn-large" onclick="calculateROI()">Calculate My Savings</button>
+                </div>
+                
+                <div class="roi-results" id="roiResults">
+                    <h3>Your Annual Savings with WP Defense Lab</h3>
+                    <div class="savings-amount" id="totalSavings">$12,000</div>
+                    
+                    <div class="savings-breakdown">
+                        <div class="breakdown-item">
+                            <div class="breakdown-number" id="timeSaved">96 hours</div>
+                            <div>Time saved per year</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-number" id="perSiteCost">$1.66</div>
+                            <div>Cost per site/month</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-number" id="roiPercent">2,400%</div>
+                            <div>Return on investment</div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 30px;">
+                        <strong>Plus:</strong> Eliminate client trust issues from exposed files, reduce support tickets, and sleep better at night.
+                    </p>
+                    
+                    <a href="#pricing" class="btn btn-large" style="margin-top: 20px;">See Agency Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horror Stories Section -->
+    <section class="stories-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 20px;">Real Agency Nightmares (That Could've Been Prevented)</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">These are actual situations reported by WordPress agencies. Don't let this happen to you.</p>
+            
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-quote">
+                        "A competitor found our client's entire brand strategy document through Google. The PDF was sitting in /wp-content/uploads/ for 6 months."
+                    </div>
+                    <div class="story-source">— Marketing Agency, Chicago</div>
+                    <div class="story-outcome">
+                        <strong>Result:</strong> Lost the $8,000/month retainer. Client sued for negligence.
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-quote">
+                        "We uploaded signed contracts for 200+ clients to their sites. Google indexed everything. Full names, addresses, payment terms - all public."
+                    </div>
+                    <div class="story-source">— Web Design Studio, Austin</div>
+                    <div class="story-outcome">
+                        <strong>Result:</strong> GDPR fines, mass client exodus, reputation destroyed.
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-quote">
+                        "Client's product launch materials leaked because we didn't realize WordPress media files are public by default. Their competitor launched first."
+                    </div>
+                    <div class="story-source">— Digital Agency, Toronto</div>
+                    <div class="story-outcome">
+                        <strong>Result:</strong> $2M product launch ruined. Agency insurance claim denied.
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="font-size: 1.2em; margin-bottom: 20px;">
+                    <strong>Every one of these could have been prevented with proper file protection.</strong>
+                </p>
+                <a href="#features" class="btn">See How We Protect Agency Files</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 20px;">Built for Agencies, By Agency Developers</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">We managed 200+ client sites before building this. Every feature solves a real agency problem.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏢</div>
+                    <h3 class="feature-title">Unlimited Site License</h3>
+                    <p>One price covers all your client sites. No per-site fees, no surprise bills as you grow.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏷️</div>
+                    <h3 class="feature-title">White Label Ready</h3>
+                    <p>Remove our branding completely. Your clients see your agency name in all security notices.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Bulk Operations</h3>
+                    <p>Protect files across all sites at once. Set agency-wide security policies in minutes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Client Reporting</h3>
+                    <p>Automated security reports for care plans. Show clients the value you provide.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚨</div>
+                    <h3 class="feature-title">Priority Support</h3>
+                    <p>Direct phone line for emergencies. We know client crises don't wait for email.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">MainWP Integration</h3>
+                    <p>Manage all file protection from your dashboard. Works with your existing tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 20px;">Transparent Agency Pricing</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">No hidden fees. No per-site charges. Just simple, scalable security.</p>
+            
+            <div class="pricing-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Number of Sites</th>
+                            <th>Monthly</th>
+                            <th>Annual (Save 20%)</th>
+                            <th>Per Site Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Up to 25 sites</strong><br><small>Perfect for growing agencies</small></td>
+                            <td>$49/month</td>
+                            <td>$470/year</td>
+                            <td>From $1.96/site</td>
+                        </tr>
+                        <tr class="price-highlight">
+                            <td><strong>Up to 100 sites</strong><br><small>Most popular option</small></td>
+                            <td>$99/month</td>
+                            <td>$950/year</td>
+                            <td>From $0.99/site</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Unlimited sites</strong><br><small>For established agencies</small></td>
+                            <td>$199/month</td>
+                            <td>$1,910/year</td>
+                            <td>Best value</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Enterprise</strong><br><small>Custom requirements</small></td>
+                            <td colspan="3" style="text-align: center;">Contact us for custom pricing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="margin-bottom: 20px;"><strong>All plans include:</strong> White labeling, priority support, bulk management, MainWP integration, and lifetime updates.</p>
+                <a href="#" class="btn btn-large">Start Free 14-Day Trial</a>
+                <p style="margin-top: 15px; color: var(--text-light);">No credit card required • Cancel anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="case-study-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 40px;">Case Study: Creative Agency Network</h2>
+            
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <div class="agency-logo">CAN</div>
+                    <div>
+                        <h3 style="font-size: 1.5em; margin-bottom: 10px;">How CAN Protects 500+ Client Sites</h3>
+                        <p>Creative Agency Network manages WordPress sites for Fortune 500 companies</p>
+                    </div>
+                </div>
+                
+                <div style="background: #fef3c7; border-left: 4px solid var(--warning-color); padding: 20px; margin-bottom: 30px;">
+                    <strong>The Challenge:</strong> After a competitor accessed confidential rebrand materials through an exposed PDF, CAN needed enterprise-grade file security across all client sites - fast.
+                </div>
+                
+                <div class="case-study-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">2 hours</div>
+                        <div class="stat-label">To secure all 500 sites</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">$24,000</div>
+                        <div class="stat-label">Annual savings</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Security incidents since</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Client retention</div>
+                    </div>
+                </div>
+                
+                <blockquote style="font-style: italic; font-size: 1.1em; margin: 30px 0; padding: 20px; border-left: 4px solid var(--primary-color);">
+                    "WP Defense Lab isn't just a plugin - it's insurance for our agency. The white-label feature means our clients think we built it ourselves. The ROI was immediate."
+                    <footer style="margin-top: 10px; font-style: normal;">— Sarah Chen, CTO at Creative Agency Network</footer>
+                </blockquote>
+                
+                <div style="text-align: center;">
+                    <a href="#" class="btn">Read Full Case Study</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 40px;">Agency Questions Answered</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">How does white labeling work?</div>
+                    <div class="faq-answer">Complete white labeling is included in all agency plans. Your agency name appears in all client-facing elements: admin notices, error messages, and security reports. Clients never see our branding.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I manage all sites from one dashboard?</div>
+                    <div class="faq-answer">Yes! We integrate with MainWP, ManageWP, and InfiniteWP. You can also use our REST API to build custom integrations with your existing tools. Bulk operations let you update security settings across all sites instantly.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What happens when I add more client sites?</div>
+                    <div class="faq-answer">Your plan covers all sites up to the limit. Going from 25 to 26 sites? Just upgrade to the 100-site plan. No retroactive charges, no complex licensing. Downgrade anytime if you lose clients.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer reseller or referral programs?</div>
+                    <div class="faq-answer">Yes! Agency partners earn 30% recurring commission for referrals. Volume discounts available for 200+ sites. We also offer co-marketing opportunities for case studies and webinars.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What about staging and development sites?</div>
+                    <div class="faq-answer">Staging and development sites don't count toward your limit. We automatically detect non-production environments. Clone away without worrying about licensing.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How fast is support response for agencies?</div>
+                    <div class="faq-answer">Agency plans include priority support with 1-hour response time during business hours. For true emergencies, you get a direct phone line. We know client crises can't wait.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Protect Your Client Files?</h2>
+                <p style="font-size: 1.2em; margin-bottom: 10px;">Join 500+ agencies who never worry about exposed files again</p>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-white btn-large">
+                        Start 14-Day Free Trial
+                    </a>
+                    <a href="#" class="btn btn-large" style="background: transparent; border: 2px solid white;">
+                        Schedule Agency Demo
+                    </a>
+                </div>
+                
+                <p style="margin-top: 30px; opacity: 0.9;">
+                    🔒 No credit card required • ⚡ Set up in 5 minutes • 📞 Priority support included
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="../shared/js/tracking.js"></script>
+    <script src="agency.js"></script>
+    
+    <!-- Schema Markup for Agencies -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "WP Defense Lab Agency",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "WordPress",
+        "description": "WordPress file protection for agencies managing multiple client sites",
+        "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "49",
+            "highPrice": "199",
+            "priceCurrency": "USD",
+            "offerCount": "3"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127"
+        }
+    }
+    </script>
+</body>
+</html>
