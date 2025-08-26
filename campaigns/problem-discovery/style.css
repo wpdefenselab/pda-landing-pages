@@ -326,32 +326,21 @@ body {
 }
 
 /* How It Happens Section */
+/* How It Happens Section */
 .how-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
     margin-top: 50px;
-    align-items: stretch; /* Makes all cards in a row the same height */
+    /* This ensures all cards in a row stretch to the same height */
+    align-items: stretch; 
 }
 
 .how-card {
     text-align: center;
+    /* This turns the card into a vertical flex container */
     display: flex;
-    flex-direction: column; /* Stacks items vertically */
-    padding-bottom: 20px; /* Adds some space at the bottom */
-}
-
-.how-card h3 {
-    /* Forces a minimum height tall enough for two lines */
-    min-height: 55px; 
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.how-card p {
-    flex-grow: 1; /* Pushes the image down to the bottom */
+    flex-direction: column;
 }
 
 .how-number {
@@ -366,6 +355,16 @@ body {
     font-size: 1.5em;
     font-weight: 700;
     margin: 0 auto 20px;
+}
+
+.how-card img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+    box-shadow: var(--shadow);
+    /* This is the key: it pushes the image to the bottom of the card */
+    margin-top: auto; 
+    padding-top: 20px; /* Adds space between the text and the image */
 }
 
 /* Solution Section */
