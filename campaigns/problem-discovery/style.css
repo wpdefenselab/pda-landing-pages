@@ -326,27 +326,18 @@ body {
 }
 
 /* How It Happens Section */
-/* How It Happens Section */
 .how-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
     margin-top: 50px;
-    /* This ensures all cards in a row stretch to the same height */
     align-items: stretch; 
 }
 
-.how-card-text {
-    /* This makes the text container grow to fill available space */
-    flex-grow: 1;
-}
-
-.how-card img {
-    width: 100%; 
-    height: auto; 
-    border-radius: 8px; 
-    box-shadow: var(--shadow);
-    margin-top: 20px; /* Use a fixed margin instead of auto */
+.how-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .how-number {
@@ -361,6 +352,11 @@ body {
     font-size: 1.5em;
     font-weight: 700;
     margin: 0 auto 20px;
+    flex-shrink: 0; /* Prevents the circle from shrinking */
+}
+
+.how-card-text {
+    flex-grow: 1; /* This makes the text container grow */
 }
 
 .how-card img {
@@ -368,10 +364,9 @@ body {
     height: auto; 
     border-radius: 8px; 
     box-shadow: var(--shadow);
-    /* This is the key: it pushes the image to the bottom of the card */
-    margin-top: auto; 
-    padding-top: 20px; /* Adds space between the text and the image */
+    margin-top: 20px; /* Adds space above the image */
 }
+
 
 /* Solution Section */
 .solution-comparison {
