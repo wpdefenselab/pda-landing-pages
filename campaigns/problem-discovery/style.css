@@ -328,21 +328,30 @@ body {
 /* How It Happens Section */
 .how-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased min width */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 50px;
-    align-items: stretch; /* This makes all cards the same height */
+    align-items: stretch; /* Makes all cards in a row the same height */
 }
 
 .how-card {
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stacks items vertically */
+    padding-bottom: 20px; /* Adds some space at the bottom */
 }
 
 .how-card h3 {
-    min-height: 55px; /* This is the magic part */
+    /* Forces a minimum height tall enough for two lines */
+    min-height: 55px; 
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.how-card p {
+    flex-grow: 1; /* Pushes the image down to the bottom */
 }
 
 .how-number {
