@@ -336,13 +336,13 @@ body {
 
 .how-card {
     text-align: center;
-    display: flex; /* Added for better internal alignment */
-    flex-direction: column; /* Added for better internal alignment */
+    display: flex;
+    flex-direction: column;
 }
 
 .how-card h3 {
+    min-height: 55px; /* This is the magic part */
     margin-bottom: 15px;
-    flex-grow: 1; /* This makes the title area expand, pushing text down */
 }
 
 .how-number {
