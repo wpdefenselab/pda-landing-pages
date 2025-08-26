@@ -328,14 +328,21 @@ body {
 /* How It Happens Section */
 .how-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased min width */
+    gap: 30px;
     margin-top: 50px;
-    align-items: start;
+    align-items: stretch; /* This makes all cards the same height */
 }
 
 .how-card {
     text-align: center;
+    display: flex; /* Added for better internal alignment */
+    flex-direction: column; /* Added for better internal alignment */
+}
+
+.how-card h3 {
+    margin-bottom: 15px;
+    flex-grow: 1; /* This makes the title area expand, pushing text down */
 }
 
 .how-number {
