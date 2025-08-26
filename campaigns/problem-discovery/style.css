@@ -336,11 +336,17 @@ body {
     align-items: stretch; 
 }
 
-.how-card {
-    text-align: center;
-    /* This turns the card into a vertical flex container */
-    display: flex;
-    flex-direction: column;
+.how-card-text {
+    /* This makes the text container grow to fill available space */
+    flex-grow: 1;
+}
+
+.how-card img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+    box-shadow: var(--shadow);
+    margin-top: 20px; /* Use a fixed margin instead of auto */
 }
 
 .how-number {
