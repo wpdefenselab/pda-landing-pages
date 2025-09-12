@@ -1,303 +1,476 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover if your WordPress files are exposed to Google and learn how to protect them. Free security check included.">
-    <title>WordPress Files Exposed to Google? Check & Fix in Minutes | Prevent Direct Access</title>
-    
-    <!-- Shared Brand Styles -->
-    <link rel="stylesheet" href="../shared/css/pda-brand.css">
-    
-    <!-- Page-Specific Styles -->
-    <link rel="stylesheet" href="style.css">
+/* campaigns/problem-discovery/style.css
+  ---------------------------------------
+  Styles specific to the Problem Discovery landing page.
+*/
 
-</head>
-<body>
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <h1>Are Your WordPress Files Exposed to Google?</h1>
-            <p>90% of WordPress sites have publicly accessible files they don't know about. Check yours instantly.</p>
-            
-            <div class="trust-indicators">
-                <div class="trust-indicator">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                    <span>4.8/5 Rating</span>
-                </div>
-                <div class="trust-indicator">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-                        <path d="M9 12l2 2 4-4"/>
-                    </svg>
-                    <span>10,000+ Protected Sites</span>
-                </div>
-                <div class="trust-indicator">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    </svg>
-                    <span>Enterprise Security</span>
-                </div>
-            </div>
-        </div>
-    </header>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- Security Scanner Section -->
-    <section class="scanner-section">
-        <div class="container">
-            <div class="scanner-card">
-                <div class="scanner-header">
-                    <h2>Free WordPress File Security Scanner</h2>
-                    <p>Enter your site URL to check if your files, PDFs, and uploads are exposed to search engines</p>
-                </div>
-                
-                <div class="url-scanner">
-                    <input type="url" class="url-input" placeholder="https://yourwordpresssite.com" id="siteUrl">
-                    <button class="btn" id="scanButton">Scan My Site</button>
-                </div>
-                
-                <div class="scanner-disclaimer">
-                    <strong>⚡ Quick Security Check:</strong> We'll perform a basic scan of your public /wp-content/uploads/ directory to check for common exposure issues. This is a non-intrusive check that only views publicly accessible information. No files will be downloaded or modified.
-                </div>
-                
-                <div class="scan-results" id="scanResults">
-                    <!-- Results will be dynamically populated here by scanner.js -->
-                </div>
-            </div>
-        </div>
-    </section>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--bg-white);
+}
 
-    <!-- Problem Explanation Section -->
-    <section class="problem-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Hidden WordPress File Security Crisis</h2>
-                <p>Most site owners don't realize their "private" files are completely exposed</p>
-            </div>
-            
-            <div class="evidence-grid">
-                <div class="evidence-card">
-                    <div class="evidence-number">73%</div>
-                    <div class="evidence-label">of WordPress sites have exposed upload directories</div>
-                </div>
-                <div class="evidence-card">
-                    <div class="evidence-number">4.3 sec</div>
-                    <div class="evidence-label">average time for bots to discover unprotected files</div>
-                </div>
-                <div class="evidence-card">
-                    <div class="evidence-number">$4.35M</div>
-                    <div class="evidence-label">average cost of a data breach in 2024</div>
-                </div>
-            </div>
-            
-            <img src="images/google-search-exposed.webp" alt="Google search results showing exposed PDF files from a WordPress site" style="width:100%; height:auto; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 40px;">
-            
-            <div class="info-box">
-                <h3>Why WordPress Files Are Vulnerable by Default</h3>
-                <p>When you upload files to WordPress, they're stored in the publicly accessible <code>/wp-content/uploads/</code> directory. This means:</p>
-                <ul>
-                    <li>Search engines index your "private" PDFs and documents</li>
-                    <li>Anyone can browse your upload directory and see all files</li>
-                    <li>Competitors can steal your premium content and resources</li>
-                    <li>Client files, contracts, and sensitive documents are exposed</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-    <!-- How It Happens Section -->
-    <section class="how-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>How Your Files Get Exposed (In 4 Simple Steps)</h2>
-            </div>
-            
-            <div class="how-grid">
-                
-                <div class="how-card">
-                    <div class="how-number">1</div>
-                    <div class="how-card-text">
-                        <h3>You Upload a File</h3>
-                        <p>You add a PDF, image, or document through WordPress media library</p>
-                    </div>
-                    <img src="images/wp-media-upload.webp" alt="WordPress media upload screen">
-                </div>
-                
-                <div class="how-card">
-                    <div class="how-number">2</div>
-                    <div class="how-card-text">
-                        <h3>WP Creates a Public URL</h3>
-                        <p>The file gets a direct URL like: yoursite.com/wp-content/uploads/file.pdf</p>
-                    </div>
-                    <img src="images/direct-file-url.webp" alt="Browser showing direct file URL">
-                </div>
-                
-                <div class="how-card">
-                    <div class="how-number">3</div>
-                    <div class="how-card-text">
-                        <h3>Search Engines Find It</h3>
-                        <p>Google crawls and indexes the file, making it searchable worldwide</p>
-                    </div>
-                    <img src="images/google-indexing.webp" alt="Google search showing indexed files">
-                </div>
-                
-                <div class="how-card">
-                    <div class="how-number">4</div>
-                    <div class="how-card-text">
-                        <h3>Anyone Can Access</h3>
-                        <p>Your "private" files are now public - no login or permission needed</p>
-                    </div>
-                    <img src="images/unauthorized-download.webp" alt="Downloaded file icon or access log">
-                </div>
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 80px 0 100px;
+    text-align: center;
+    position: relative;
+}
 
-            </div>
-        </div>
-    </section>
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
 
-    <!-- Solution Section -->
-    <section class="solution-section" id="solution">
-        <div class="container">
-            <div class="section-header">
-                <h2>How to Protect Your WordPress Files</h2>
-                <p>Compare different protection methods and their effectiveness</p>
-            </div>
-            
-            <div class="solution-comparison">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Protection Method</th>
-                            <th>Security Level</th>
-                            <th>Setup Difficulty</th>
-                            <th>Performance Impact</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Manual .htaccess Rules</td>
-                            <td>⭐⭐ Basic</td>
-                            <td>Very Hard (coding required)</td>
-                            <td>None</td>
-                        </tr>
-                        <tr>
-                            <td>Move Files Outside Web Root</td>
-                            <td>⭐⭐⭐⭐ High</td>
-                            <td>Expert Level (server access)</td>
-                            <td>High (PHP processing)</td>
-                        </tr>
-                        <tr>
-                            <td>Password Protection Only</td>
-                            <td>⭐ Minimal</td>
-                            <td>Easy</td>
-                            <td>None (but files still exposed)</td>
-                        </tr>
-                        <tr class="highlighted">
-                            <td><strong>Prevent Direct Access Plugin</strong></td>
-                            <td>⭐⭐⭐⭐⭐ Maximum</td>
-                            <td>5-Minute Setup</td>
-                            <td>Minimal (0.03s)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <img src="images/before-after-protection.webp" alt="Before/After comparison showing exposed files vs. protected files" style="width:100%; height:auto; border-radius: 8px; box-shadow: var(--shadow); margin-top: 40px;">
-        </div>
-    </section>
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Stop File Theft & Google Indexing Today</h2>
-                <p>Join 10,000+ WordPress professionals who protect their files with Prevent Direct Access</p>
-                
-                <div class="cta-buttons">
-                    <a href="https://wordpress.org/plugins/prevent-direct-access/" class="btn btn-white">
-                        Download Free Version
-                    </a>
-                    <a href="https://preventdirectaccess.com/pricing/" class="btn btn-secondary" style="border-color: white; color: white;">
-                        View Pro Features
-                    </a>
-                </div>
-                
-                <p class="cta-subtext">
-                    ⭐ 4.8/5 Rating • 🔒 No Credit Card Required • ⏱️ 5-Minute Setup
-                </p>
-            </div>
-        </div>
-    </section>
+.trust-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Common Questions About WordPress File Protection</h2>
-            </div>
-            
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">How do I stop people from downloading my WordPress files?</div>
-                    <div class="faq-answer">Install Prevent Direct Access plugin to block unauthorized file access. It creates secure URLs that only authorized users can access, while blocking the original file paths completely.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Why are my WordPress uploads showing in Google?</div>
-                    <div class="faq-answer">WordPress doesn't protect uploaded files by default. Google crawls your /wp-content/uploads/ directory and indexes everything it finds. You need additional protection to block search engines.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Will protecting files slow down my website?</div>
-                    <div class="faq-answer">Quality protection plugins like Prevent Direct Access add only 0.03 seconds to load time. The security checks happen at the server level before WordPress loads, ensuring minimal impact.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Can I protect PDFs in WordPress Media Library?</div>
-                    <div class="faq-answer">Yes, Prevent Direct Access works with all file types including PDFs, images, videos, and documents. Simply click "Protect" on any file in your Media Library.</div>
-                </div>
-            </div>
-        </div>
-    </section>
+.trust-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+}
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Prevent Direct Access. Protecting WordPress files since 2018.</p>
-            <div class="footer-links">
-                <a href="https://preventdirectaccess.com/docs/">Documentation</a>
-                <a href="https://wordpress.org/support/plugin/prevent-direct-access/">Support Forum</a>
-                <a href="https://preventdirectaccess.com/privacy-policy/">Privacy Policy</a>
-                <a href="https://preventdirectaccess.com/blog/">Security Blog</a>
-            </div>
-        </div>
-    </footer>
+/* Security Scanner */
+.scanner-section {
+    margin-top: -60px;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 80px;
+}
 
-    <!-- Page-Specific Scanner Logic -->
-    <script src="scanner.js"></script>
-    
-    <!-- Shared Tracking Logic -->
-    <script src="../shared/js/tracking.js"></script>
-    
-    <!-- Schema.org Markup for SEO/AI -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Prevent Direct Access",
-        "applicationCategory": "SecurityApplication",
-        "operatingSystem": "WordPress",
-        "description": "Protect WordPress files from unauthorized access and search engine indexing",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "286"
-        },
-        "offers": {
-            "@type": "AggregateOffer",
-            "lowPrice": "0",
-            "highPrice": "199",
-            "priceCurrency": "USD"
-        }
+.scanner-card {
+    background: var(--bg-white);
+    border-radius: 12px;
+    padding: 50px;
+    box-shadow: var(--shadow);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.scanner-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.scanner-header h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.url-scanner {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.url-input {
+    flex: 1;
+    padding: 18px 24px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.url-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 18px 36px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-white {
+    background: white;
+    color: var(--primary-color);
+}
+
+.btn-white:hover {
+    background: var(--bg-light);
+}
+
+.scanner-disclaimer {
+    background: #fef3c7; 
+    border: 1px solid #f59e0b; 
+    border-radius: 8px; 
+    padding: 15px; 
+    margin-top: 20px; 
+    font-size: 0.9em;
+}
+
+/* Scan Results */
+.scan-results {
+    display: none;
+    margin-top: 40px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.result-header {
+    background: var(--bg-light);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.vulnerability-list {
+    display: grid;
+    gap: 15px;
+}
+
+.vulnerability-item {
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid;
+    background: var(--bg-white);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.vulnerability-critical {
+    border-color: var(--danger-color);
+    background: #fef2f2;
+}
+
+.vulnerability-warning {
+    border-color: #f59e0b;
+    background: #fffbeb;
+}
+
+.vulnerability-good {
+    border-color: var(--success-color);
+    background: #f0fdf4;
+}
+
+.vulnerability-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.vulnerability-title span {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.result-disclaimer {
+    margin-top: 30px; 
+    padding: 20px; 
+    background: #eff6ff; 
+    border-radius: 8px; 
+    border: 1px solid #3b82f6;
+}
+
+.result-disclaimer p {
+    margin: 0; 
+    font-size: 0.95em;
+}
+
+/* General Section Styles */
+.problem-section, .how-section, .solution-section, .faq-section {
+    padding: 80px 0;
+}
+
+.problem-section, .solution-section {
+    background: var(--bg-light);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+/* Problem Section */
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.evidence-card {
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.evidence-number {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.evidence-label {
+    font-size: 1.1em;
+    color: var(--text-light);
+}
+
+.info-box {
+    background: white; 
+    padding: 40px; 
+    border-radius: 12px; 
+    box-shadow: var(--shadow);
+}
+
+.info-box h3 {
+    margin-bottom: 20px;
+}
+
+.info-box p {
+    line-height: 1.8; 
+    margin-bottom: 20px;
+}
+
+.info-box ul {
+    list-style: none; 
+    padding: 0;
+}
+
+.info-box ul li {
+    padding: 10px 0; 
+    padding-left: 30px; 
+    position: relative;
+}
+
+.info-box ul li::before {
+    content: '✗';
+    position: absolute; 
+    left: 0; 
+    color: var(--danger-color);
+}
+
+/* How It Happens Section */
+.how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.how-card {
+    text-align: center;
+}
+
+.how-number {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 0 auto 20px;
+}
+
+/* Solution Section */
+.solution-comparison {
+    background: var(--bg-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-top: 40px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.comparison-table th {
+    background: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.comparison-table td {
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tr.highlighted {
+    background: #eff6ff;
+    font-weight: 600;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.cta-subtext {
+    margin-top: 30px; 
+    opacity: 0.9;
+}
+
+/* FAQ Section */
+.faq-grid {
+    display: grid;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.faq-item {
+    background: var(--bg-white);
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.faq-question {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.faq-answer {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* Footer */
+.footer {
+    background: var(--text-dark);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;
     }
-    </script>
-</body>
-</html>
+    
+    .url-scanner {
+        flex-direction: column;
+    }
+    
+    .scanner-card {
+        padding: 30px 20px;
+    }
+    
+    .trust-indicators {
+        gap: 20px;
+    }
+
+    .section-header h2 {
+        font-size: 2em;
+    }
+}
